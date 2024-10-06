@@ -8,6 +8,7 @@ import PasswordGenerator from './component/password/password'
 import { Routes, Route } from 'react-router-dom';
 import Home from './page/home'
 import Password from './page/password'
+import WeatherCard from './component/wetherCard/wetherCard'
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/password" element={<Password />} />
+        <Route path="/weather" element={<WeatherCard city={'Mumbai'} />} />
+
         {/* <Route path="categories" element={<Category/>} /> */}
 
       </Routes>

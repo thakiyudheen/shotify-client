@@ -9,9 +9,11 @@ interface FeatureProps {
   title: string;
   description: string;
   isSelected: boolean;
+  route:string ;
   onClick: () => void;
 }
-const Feature: React.FC<FeatureProps> = ({ icon, title, description, isSelected, onClick }) => {
+const Feature: React.FC<FeatureProps> = ({ icon, title, description, isSelected,route , onClick }) => {
+  
   const navigator =useNavigate()
   return (
     <div 
@@ -24,7 +26,7 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, isSelected,
       <h3 className="text-lg font-semibold mb-1">{title}</h3>
       <p className="text-sm text-center">{description}</p>
 
-      <button onClick={()=>navigator('/password')} className='py-1  px-4 rounded-lg mt-5 border border-black dark:border-white dark:text-white  text-black'> <small>Click </small></button>
+      <button onClick={()=>navigator(`/${route}`)} className='py-1  px-4 rounded-lg mt-5 border border-black dark:border-white dark:text-white  text-black'> <small>Click </small></button>
     </div>
   );
 };
@@ -37,16 +39,19 @@ const FeatureList: React.FC = () => {
       icon: <MdOutlineSecurity />,
       title: 'Password Creator',
       description: 'Highly secure encryption algorithms and human integrity checks to protect you.',
+      route :'password'
     },
     {
       icon: <TiWeatherPartlySunny />,
       title: 'Weather',
       description: 'Start accepting your customers\' preferred payment methods and grow your business.',
+      route :'weather'
     },
     {
       icon: <BiSolidMessageSquareError />,
       title: 'About',
       description: 'Start accepting your customers\' preferred payment methods and grow your business.',
+      route :'about'
     },
   ];
 
