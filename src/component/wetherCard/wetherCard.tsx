@@ -12,7 +12,7 @@ const WeatherCard: React.FC<{ city: string }> = ({ city }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f0a0657645fbb58602c03f661e6f1bff&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric`
         );
         setWeatherData(response.data);
       } catch (error) {

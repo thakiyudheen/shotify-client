@@ -133,9 +133,11 @@ const ShortURLGenerator: React.FC = () => {
         validLink = `http://${link}`;
       }
 
-      const response = await api_client.post('http://localhost:5000/shorten', { originalUrl: validLink });
-      setShortUrl(`http://localhost:5000/${response.data.shortUrl}`);
-      setLink(`http://localhost:5000/${response.data.shortUrl}`)
+      const response = await api_client.post(`${import.meta.env.VITE_API_URL}/shorten`, { originalUrl: validLink });
+      const shortUrl = `${import.meta.env.VITE_API_URL}/${response.data.shortUrl}`;
+      
+      setShortUrl(shortUrl);
+      setLink(shortUrl);
       setLoading(false);
     } catch (err) {
       console.error('Error shortening URL', err);
